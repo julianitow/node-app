@@ -6,5 +6,25 @@
   </head>
   <body>
     <p>Ville: {{ ville }}</p>
+    <p>Longitude: {{ long }} </p>
+    <p>Latitude: {{ lat }} </p>
+    <div id="map"></div>
+    <script>
+    {{#map}}
+        function initMap() {
+        var location = {lat: {{ lat }}, lng: {{ long }}};
+        var map = new google.maps.Map(document.getElementById('map'), {zoom: 12, center: location});
+        var marker = new google.maps.Marker({position: location, map: map});
+        }
+    {{/map}}
+    {{^map}}
+        window.alert("Invalid city name.");
+    {{/map}}
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdci0WQCroIDrIaBqFiqUcjkrRV-c4rFM&callback=initMap">
+    </script>
   </body>
 </html>
+
+
