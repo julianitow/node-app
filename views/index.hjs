@@ -7,10 +7,10 @@
   <body>
     <h1>{{ title }}</h1>
     <p>Welcome to {{ title }}</p>
-    <form action="/ville" method="get" class="form-example">
+    <form action="/ville" method="post" class="form-example">
       <div class="form-example">
         <label for="name">Ville:</label>
-        <input type="text" name="ville" id="nom_ville" required>
+        <input type="text" name="nom_ville" id="nom_ville" required>
       </div>
       <div class="form-example">
         <input type="submit" value="Send!">
