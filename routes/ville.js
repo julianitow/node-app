@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 
 /* POST ville page. */
 router.post('/', function(req, res, next) {
-    getCoordinates(req.body.nom_ville.toLocalLowerCase()).then((data) => {
+    getCoordinates(req.body.nom_ville).then((data) => {
         if(data.longt > 0){
             res.render('ville', { ville: req.body.nom_ville, long: data.longt, lat:  data.latt, map: true});
         } else {
@@ -24,7 +24,7 @@ router.post('/', function(req, res, next) {
 /* Requet to goeparsing API */
 function getCoordinates(city){
     let request = new Promise((resolve, reject) => {
-        const URI = URI_API + city + END_URI;
+        const URI = URI_API + city.toLocaleLowerCase() + END_URI;
         https.get(URI, (res) => {
             const { statusCode } = res;
             const contentType = res.headers['content-type'];
