@@ -19,4 +19,15 @@ $DEBUG="node-app:server" npm start
 npm run start
 ```
 
+#tests
+There are some tests in test.js done with AVA
+* Home page should contain a form
+* City page should contain the name of the city
+* City name with accentuated character should be supported
+
+## Run tests
+```
+npm test
+```
+
 ## Done !
